@@ -1,0 +1,155 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a
+{
+    font-size: 1.3em;
+    font-weight: normal;
+    color: #313131;
+    text-decoration: none;
+}
+
+p
+{
+    color: #555;
+    font-size: 1.3em;
+}
+
+.container
+{
+    width: 70%;
+    margin: 0 auto;
+    padding: 1em;
+    overflow: hidden;
+    border: 1px solid #dadada;
+}
+
+.modeSwitchLabel
+{
+    display: block;
+    height: 2em;
+    margin: .5em auto .5em 2em;
+}
+
+.navicon
+{
+    width: 1.5em;
+    height: 2em;
+    transform: rotate(90deg);
+    transition: .4s;
+}
+
+.modeSwitch
+{
+    display: none;
+}
+
+.modeSwitch:checked + .modeSwitchLabel .navicon
+{
+    transform: rotate(180deg);
+    width: 2em;
+    height: 1.5em;
+}
+
+article
+{
+    float: left;
+    box-sizing: border-box;
+    min-width: 250px;
+    width: calc(100%/3 - 2em);
+    margin: 1em;
+    border: 1px solid #dadada;
+    overflow: hidden;
+}
+
+@media (max-width: 1260px)
+{
+    article
+    {
+        width: calc(50% - 2em);
+    }
+
+}
+
+article > .image
+{
+    display: block;
+    margin-bottom: 1em;
+    width: 100%;
+    height: 14em;
+}
+
+.image > img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modeSwitch:not(:checked) ~ article:hover
+{
+    border-color: #bebebe;
+    box-shadow: 4px 4px 12px #bebebe;
+}
+
+.modeSwitch:checked ~ article
+{
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    max-width: none;
+    width: calc(100% + 2em);
+    margin: -1em;
+    padding: 2em;
+}
+
+.modeSwitch:checked ~ article:first-of-type
+{
+    border-top: 0;
+}
+
+.modeSwitch:checked ~ article > .image
+{
+    height: 30em;
+    width: auto;
+}
+
+.modeSwitch:checked ~ article img
+{
+    object-fit: contain;
+}
+
+.modeSwitch:not(:checked) ~ article > .image:hover
+{
+    margin: -1em;
+    width: calc(100% + 2em);
+    height: 16em;
+}
+
+article > :not(.image)
+{
+    margin-left: 2rem;
+}
+
+.name:hover
+{
+    text-shadow: 1px 1px 3px #313131;
+}
+
+.longInfo
+{
+    display: none;
+}
+
+.modeSwitch:checked ~ article > .shortInfo,
+.modeSwitch:checked ~ article > .status
+{
+    display: none;
+}
+
+.modeSwitch:checked ~ article > .longInfo
+{
+    display: block;
+}
